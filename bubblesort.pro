@@ -16,10 +16,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    sorttester.cpp
+    sorttester.cpp \
+    mythread.cpp
 
 HEADERS += \
     bubblesort.h \
     isort.h \
     bubblesortthreaded.h \
-    sorttester.h
+    sorttester.h \
+    mythread.h

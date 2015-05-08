@@ -7,6 +7,10 @@ public:
     SortTester();
 
     void test();
+    void getSize();
+private:
+    int tabSize;
+    int nbThread;
 };
 
 #endif // SORTTESTER_H
