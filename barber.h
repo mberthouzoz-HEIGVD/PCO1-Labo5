@@ -12,12 +12,14 @@ class Customer;
 
 class Barber : public QThread
 {
+    Q_OBJECT
 private:
     WaitingRoom* room;
 public:
     Barber();
     Barber(WaitingRoom* room);
 
+    void setRoom(WaitingRoom* room);
     void serve(Customer* customer);
     WaitingRoom* getWaitingRoom() const;
     void setWaitingRoom(WaitingRoom* room);

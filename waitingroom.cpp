@@ -4,11 +4,11 @@ WaitingRoom::WaitingRoom(uint nbSeats) : NB_SEATS(nbSeats){
 
 }
 
-void WaitingRoom::enter(MowCustomer* mowCustomer) {
+bool WaitingRoom::enter(MowCustomer* mowCustomer) {
 
 }
 
-void WaitingRoom::enter(TattooCustomer* TattooCustomer) {
+bool WaitingRoom::enter(TattooCustomer* TattooCustomer) {
 
 }
 

@@ -8,6 +8,10 @@ Barber::Barber(WaitingRoom* room) : room(room){
 
 }
 
+void Barber::setRoom(WaitingRoom* room) : room(room){
+
+}
+
 void Barber::serve(Customer* customer) {
     customer->serve();
 }

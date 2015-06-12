@@ -42,6 +42,7 @@
 #include "QDebug"
 
 #include "waitingroom.h"
+#include "customer.h"
 #include "mowcustomer.h"
 #include "tattoocustomer.h"
 #include "barber.h"
@@ -63,20 +64,19 @@ int main()
     WaitingRoom room(nbSeat);
 
     for (int i = 0; i < nbCustomer; i++) {
-        qDebug() << qrand();
-        /*if (qrand() == 0) {
-            Customer *c = new MowClient(&room);
-            c->setWaitingTime(qrand() % 3000);
+        if (qrand() % 2 == 0) {
+            Customer *c = new MowCustomer(&room);
+            c->setDurationWaiting(qrand() % 3000);
             c->start();
         } else {
-            Customer *c = new TattooClient(&room);
-            c->setWaitingTime(qrand() % 20000);
+            Customer *c = new TattooCustomer(&room);
+            c->setDurationWaiting(qrand() % 20000);
             c->start();
-        }*/
+        }
     }
-/*
-    Barber barber;
+
+    Barber barber();
     barber.setRoom(&room);
-    barber.start();*/
+    barber.start();
 
 }

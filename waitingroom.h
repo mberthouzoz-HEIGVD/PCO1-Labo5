@@ -26,8 +26,8 @@ private:
 public:
     WaitingRoom(uint nbSeats);
 
-    void enter(MowCustomer* mowCustomer);
-    void enter(TattooCustomer* TattooCustomer);
+    bool enter(MowCustomer* mowCustomer);
+    bool enter(TattooCustomer* TattooCustomer);
 
     void pickup(Barber* barber);
 };
