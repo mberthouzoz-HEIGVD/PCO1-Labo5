@@ -1,2 +1,2 @@
-# HEIGVD-PCO-Labo4
-HEIG-VD PCO Labo 4 Bublle sort multithreaded
+# PCO1-Labo5
+PCO1 - Labo 5 Barbier
