@@ -3,7 +3,7 @@
 #include "QDebug"
 
 TattooCustomer::TattooCustomer(WaitingRoom* room) : Customer(room){
-
+    name = "Client pour tatouage #" + count++;
 }
 
 void TattooCustomer::serve() {
@@ -25,4 +25,10 @@ void TattooCustomer::run() {
             msleep(durationWaiting / 2);
         }
     }
+}
+
+std::ostream& operator<<(std::ostream& out, const TattooCustomer& c)
+{
+    out << c.name;
+    return out;
 }

@@ -17,6 +17,8 @@ public:
 private:
     static const unsigned int SERVE_MAX = 3000;
     static const unsigned int SERVE_MIN = 2000;
+
+friend std::ostream& operator<<(std::ostream& out, const MowCustomer& c);
 };
 
 #endif // MOWCUSTOMER_H

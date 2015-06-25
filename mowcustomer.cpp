@@ -3,7 +3,7 @@
 #include "QDebug"
 
 MowCustomer::MowCustomer(WaitingRoom* room) : Customer(room) {
-
+    name = "Client pour tonte #" + count++;
 }
 
 void MowCustomer::serve() {
@@ -25,4 +25,10 @@ void MowCustomer::run() {
             msleep(durationWaiting / 2);
         }
     }
+}
+
+std::ostream& operator<<(std::ostream& out, const MowCustomer& c)
+{
+    out << c.name;
+    return out;
 }

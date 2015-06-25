@@ -18,6 +18,8 @@ public:
 private:
     static const int SERVE_MAX = 5000;
     static const int SERVE_MIN = 3000;
+
+friend std::ostream& operator<<(std::ostream& out, const TattooCustomer& c);
 };
 
 #endif // TATTOOCUSTOMER_H
