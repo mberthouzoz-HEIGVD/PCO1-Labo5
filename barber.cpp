@@ -1,15 +1,11 @@
 #include "barber.h"
 
-Barber::Barber() : room(nullptr){
+Barber::Barber(QObject *parent) : QThread(parent), room(nullptr){
 
 }
 
-Barber::Barber(WaitingRoom* room) : room(room){
-
-}
-
-void Barber::setRoom(WaitingRoom* room) : room(room){
-
+void Barber::setRoom(WaitingRoom* r) {
+    room = r;
 }
 
 void Barber::serve(Customer* customer) {

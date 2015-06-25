@@ -16,8 +16,7 @@ class Barber : public QThread
 private:
     WaitingRoom* room;
 public:
-    Barber();
-    Barber(WaitingRoom* room);
+    Barber(QObject *parent = 0);
 
     void setRoom(WaitingRoom* room);
     void serve(Customer* customer);

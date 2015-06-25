@@ -15,6 +15,9 @@ protected:
 public:
     TattooCustomer(WaitingRoom* room);
     void serve();
+private:
+    static const int SERVE_MAX = 5000;
+    static const int SERVE_MIN = 3000;
 };
 
 #endif // TATTOOCUSTOMER_H

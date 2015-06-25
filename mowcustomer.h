@@ -14,6 +14,9 @@ protected:
 public:
     MowCustomer(WaitingRoom* room);
     void serve();
+private:
+    static const unsigned int SERVE_MAX = 3000;
+    static const unsigned int SERVE_MIN = 2000;
 };
 
 #endif // MOWCUSTOMER_H

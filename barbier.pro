@@ -9,7 +9,7 @@ QT       += core
 QT       -= gui
 
 TARGET = barbier
-CONFIG   += console
+#CONFIG   += console
 CONFIG   -= app_bundle
 
 QMAKE_CXXFLAGS += -std=c++0x

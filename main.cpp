@@ -1,42 +1,15 @@
 /**
   * Michaël Berthouzoz & Eleonore Dagostino
-  * 2015-05-28
+  * 2015-06-25
   *
-  * Réaliser un algorithme de tri réparti en plusieurs tâches.
+  * Implémentation un salon coiffure ou tattoo
+  * à l'aide de moniteur
   *
-  * On demande le nombre d'element et de thread voulus.
-  * On partage le nombre d'element aux differents threads.
-  * On applique un tri a bulle a chaque tableau et
-  * on partage un ou deux element commun de chaque tableau.
-  * On verifie si le resultat est bon si ce n est pas le cas
-  * on recommence jusqu au resultat souhaite.
+  * Clients et barbiers sont des threads
+  * La salle d'attente gère les clients qui sont
+  * servis ou qui attendent.
   *
-  * Test
-  * ---------------------------------------------------
-  * Nbre Element   | Nbre Thread   |    Temps
-  * ---------------------------------------------------
-  * 10                     2            0.004
-  * 1000                   2            0.17
-  * 1000                   3            0.111
-  * 1000                   4            0.113
-  * 1000                   7            0.16
-  * 5000                   3            9.202
-  * 5000                   5            5.828
-  * 5000                   7            4.55
-  * 8888                   3           43.63
-  * 10000                  2          109.994
-  * 10000                  4           56.785
-  * 10000                  7           32.687
-  *
-  * Pour 1000 elements on remaque qu'avec 2 threads
-  * c'est plus rapide qu'avec 3 ou 4.
-  * Pour 5000 et 10000, plus il y a de thread plus
-  * c'est rapide.
-  *
-  * Les tests sont effectué sur un Lenovo Yoga 2 Pro
-  * Windows 8.1 Professionnel 64 bits
-  * Intel(R) Core(TM) i7-4500U CPU @ 1.80GHz 2.40GHz
-  * 8 Go de Ram
+  * Le babier prend en priorité les clients à tatouer
   */
 #include "iostream"
 #include "QDebug"
@@ -46,6 +19,7 @@
 #include "mowcustomer.h"
 #include "tattoocustomer.h"
 #include "barber.h"
+#include "QDebug"
 
 using namespace std;
 
@@ -54,15 +28,19 @@ int main()
     int nbSeat;
     int nbCustomer;
 
-    // Recupere les valeurs
-    cout << "Nombre de siege: ";
-    cin >> nbCustomer;
+    // Recupere les valeurs avec le controle de saisie
+    do {
+        cout << "Nombre de client [0 - 50]: ";
+    } while (!(cin >> nbCustomer) || nbCustomer <= 0 || nbCustomer >= 50);
 
-    cout << endl << "Nombre de client: ";
-    cin >> nbSeat;
+    do {
+        cout << endl << "Nombre de siege [0 - 50]: ";
+    } while (!(cin >> nbSeat) || nbSeat <= 0 || nbSeat >= 50);
 
+    // Instance une salle d'attente avec le nombre de siege
     WaitingRoom room(nbSeat);
 
+    // Instance les clients
     for (int i = 0; i < nbCustomer; i++) {
         if (qrand() % 2 == 0) {
             Customer *c = new MowCustomer(&room);
@@ -75,8 +53,9 @@ int main()
         }
     }
 
-    Barber barber();
+    // Instance un barbier et lui attribue une salle
+    Barber barber;
     barber.setRoom(&room);
+    qDebug() << "Le barbier va travailler.";
     barber.start();
-
 }
