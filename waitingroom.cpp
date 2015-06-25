@@ -13,11 +13,13 @@ bool WaitingRoom::enter(MowCustomer* mowCustomer) {
         qDebug() << "Le client" << mowCustomer << "n'a pas eu de place.";
         return false;
     } else if (nbTattooClientWaiting + nbMowClientWaiting == 0) {
+        qDebug() << "Le client" << mowCustomer << "est le suivant.";
         next = mowCustomer;
         CustomerWaiting.wakeOne();
         qDebug() << "Le client" << mowCustomer << "est servi.";
         mutex.unlock();
     } else {
+        qDebug() << "Le client" << mowCustomer << "est en attente.";
         nbMowClientWaiting++;
         MowWaiting.wait(&mutex);
         next = mowCustomer;
@@ -37,11 +39,13 @@ bool WaitingRoom::enter(TattooCustomer* tattooCustomer) {
         qDebug() << "Le client" << tattooCustomer << "n'a pas eu de place.";
         return false;
     } else if (nbTattooClientWaiting + nbMowClientWaiting == 0) {
+        qDebug() << "Le client" << tattooCustomer << "est le suivant.";
         next = tattooCustomer;
         CustomerWaiting.wakeOne();
         qDebug() << "Le client" << tattooCustomer << "est servi.";
         mutex.unlock();
     } else {
+        qDebug() << "Le client" << tattooCustomer << "est en attente.";
         nbTattooClientWaiting++;
         TattooWaiting.wait(&mutex);
         next = tattooCustomer;

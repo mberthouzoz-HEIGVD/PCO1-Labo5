@@ -7,11 +7,9 @@ TattooCustomer::TattooCustomer(WaitingRoom* room) : Customer(room){
 }
 
 void TattooCustomer::serve() {
-    qDebug() << "Serve" << metaObject()->className() << this;
     // la duree du tatouage
     unsigned int time_serve = (qrand() % (SERVE_MAX - SERVE_MIN + 1)) + SERVE_MIN;
     msleep(time_serve);
-    qDebug() << "EndServe" << metaObject()->className() << this;
 }
 
 void TattooCustomer::run() {

@@ -21,8 +21,8 @@ private:
     QWaitCondition TattooWaiting;
     QWaitCondition CustomerWaiting;
 
-    uint nbMowClientWaiting;
-    uint nbTattooClientWaiting;
+    uint nbMowClientWaiting = 0;
+    uint nbTattooClientWaiting = 0;
 
     Customer* next;
 public:

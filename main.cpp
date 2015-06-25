@@ -13,29 +13,31 @@
   */
 #include "iostream"
 #include "QDebug"
+#include <QCoreApplication>
 
 #include "waitingroom.h"
 #include "customer.h"
 #include "mowcustomer.h"
 #include "tattoocustomer.h"
 #include "barber.h"
-#include "QDebug"
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
+    QCoreApplication a(argc, argv);
+
     int nbSeat;
     int nbCustomer;
 
     // Recupere les valeurs avec le controle de saisie
     do {
         cout << "Nombre de client [0 - 50]: ";
-    } while (!(cin >> nbCustomer) || nbCustomer <= 0 || nbCustomer >= 50);
+    } while (!(cin >> nbCustomer) || nbCustomer <= 0 || nbCustomer > 50);
 
     do {
         cout << endl << "Nombre de siege [0 - 50]: ";
-    } while (!(cin >> nbSeat) || nbSeat <= 0 || nbSeat >= 50);
+    } while (!(cin >> nbSeat) || nbSeat <= 0 || nbSeat > 50);
 
     // Instance une salle d'attente avec le nombre de siege
     WaitingRoom room(nbSeat);
@@ -58,4 +60,6 @@ int main()
     barber.setRoom(&room);
     qDebug() << "Le barbier va travailler.";
     barber.start();
+
+    return a.exec();
 }
