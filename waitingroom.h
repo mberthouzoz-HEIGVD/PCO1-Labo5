@@ -23,6 +23,8 @@ private:
 
     uint nbMowClientWaiting;
     uint nbTattooClientWaiting;
+
+    Customer* next;
 public:
     WaitingRoom(uint nbSeats);
 
