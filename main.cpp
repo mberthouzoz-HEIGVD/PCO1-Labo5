@@ -10,6 +10,12 @@
   * servis ou qui attendent.
   *
   * Le babier prend en priorité les clients à tatouer
+  *
+  * Test :
+  * Nombre de client : 10
+  * Nombre de siege  : 5
+  *
+  *
   */
 #include "iostream"
 #include "QDebug"
