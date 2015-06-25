@@ -13,7 +13,6 @@ void MowCustomer::serve() {
 }
 
 void MowCustomer::run() {
-    qDebug() << "Demarrage mowCustomer" << metaObject()->className() << this << endl;
     // attente en miliseconde
     msleep(durationWaiting);
 

@@ -13,8 +13,6 @@ void TattooCustomer::serve() {
 }
 
 void TattooCustomer::run() {
-    qDebug() << "Demarrage tattooCustomer" << metaObject()->className() << this << "\n";
-
     // attente en miliseconde
     msleep(durationWaiting);
 
