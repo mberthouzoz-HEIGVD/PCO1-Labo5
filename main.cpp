@@ -9,13 +9,13 @@
   * La salle d'attente gère les clients qui sont
   * servis ou qui attendent.
   *
-  * Le babier prend en priorité les clients à tatouer
+  * Le barbier prend en priorité les clients à tatouer
   *
   * Test :
   * Nombre de client : 10
   * Nombre de siege  : 5
   *
-  *
+  * Voir la capture d'écran execution.png
   */
 #include "iostream"
 #include "QDebug"
