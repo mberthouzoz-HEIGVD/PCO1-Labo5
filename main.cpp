@@ -29,13 +29,11 @@ int main()
     int nbCustomer;
 
     // Recupere les valeurs avec le controle de saisie
-    do {
-        cout << "Nombre de client [0 - 50]: ";
-    } while (!(cin >> nbCustomer) || nbCustomer <= 0 || nbCustomer >= 50);
+    cout << "Nombre de client [0 - 50]: ";
+    while (!(cin >> nbCustomer) || nbCustomer <= 0 || nbCustomer >= 50);
 
-    do {
-        cout << endl << "Nombre de siege [0 - 50]: ";
-    } while (!(cin >> nbSeat) || nbSeat <= 0 || nbSeat >= 50);
+    cout << endl << "Nombre de siege [0 - 50]: ";
+    while (!(cin >> nbSeat) || nbSeat <= 0 || nbSeat >= 50);
 
     // Instance une salle d'attente avec le nombre de siege
     WaitingRoom room(nbSeat);
